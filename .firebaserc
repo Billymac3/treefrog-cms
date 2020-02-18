@@ -1,9 +1,6 @@
 {
   "projects": {
-<<<<<<< HEAD
-    "default": "cms-test-55828"
-=======
+    "default": "cms-test-55828",
     "default": "treefrog-cms-bm"
->>>>>>> fd71f9298950960f438dacf371f64a080a2c6408
   }
 }
