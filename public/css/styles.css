@@ -29,6 +29,12 @@ p {
   background-color: #393c40;
   color: #f2f2f2; }
 
+.btn-tan {
+  background-color: #f2dcc9;
+  color: #393c40;
+  width: 225px;
+  margin-right: 0px; }
+
 .modal {
   position: fixed;
   top: 0;
@@ -42,7 +48,41 @@ p {
     height: 350px;
     background-color: #393c40;
     margin: auto;
-    border-radius: 10px; }
+    border-radius: 10px;
+    color: #f2f2f2;
+    padding: 20px; }
+    .modal .alert-box h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 25px; }
+    .modal .alert-box .centerText {
+      text-align: center; }
+    .modal .alert-box .centerText-spacing {
+      margin-top: 50px; }
+    .modal .alert-box .centerDiv {
+      width: 200px;
+      margin: 0 auto; }
+    .modal .alert-box input {
+      width: 200px;
+      height: 35px;
+      border-radius: 8px;
+      border: 1px solid #f2f2f2;
+      text-align: center;
+      font-size: 16px; }
+    .modal .alert-box .centerBtns {
+      display: flex;
+      justify-content: space-evenly;
+      text-align: center;
+      margin-top: 25px; }
+    .modal .alert-box select {
+      width: 200px;
+      height: 35px;
+      border-radius: 8px;
+      border: 1px solid #f2f2f2;
+      text-align: center;
+      font-size: 14px;
+      margin-top: -40px;
+      margin-bottom: 20px; }
 
 .nav {
   position: fixed;
