@@ -17,6 +17,9 @@ h6,
 p {
   margin-bottom: 16px; }
 
+#editor {
+  height: 375px; }
+
 .btn {
   border-radius: 10px;
   height: 50px;
@@ -121,3 +124,5 @@ p {
   .content-wrapper .text-wrapper {
     width: 30%;
     margin-bottom: 40px; }
+    .content-wrapper .text-wrapper .pWidth {
+      width: 200%; }

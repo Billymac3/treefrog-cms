@@ -13,6 +13,10 @@ function initButtons() {
   $('.closeModal').click(function() {
     closeModal();
   });
+
+  $('.getInput').click(function(){
+    getInput();
+  });
 }
 
 function addCreateMNListener() {
@@ -23,6 +27,42 @@ function addCreateMNListener() {
 
 function closeModal() {
   $('.modal').css('display', 'none');
+}
+
+function getInput(){
+  console.log("yeet");
+    var str = $("#input").val();
+    var res = str.toLowerCase();
+    if(res === ''){
+      alert("the input is empty, try again");
+    }else{
+      console.log(res);
+      var array = ["testvar"];
+      
+      for (let index = 0; index < array.length; index++) {
+        console.log(array[index]);
+        if(res === array[index]) {
+          alert("this term already exists");
+        }else{
+          console.log("it works");
+
+          appendNav(res);
+
+          closeModal();
+
+          
+        }
+      }
+    }
+}
+
+function appendNav(res) {
+  console.log(res);
+  $('.text-wrapper').html(TREEFROG_SERVICE.getAddContent());
+  $('.btn-holder').html(TREEFROG_SERVICE.getAddContentButton());
+  $('.itemAppend').html(res);
+  // $('#editor').html(quill);
+
 }
 
 function addGetStartedListener() {
