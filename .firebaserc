@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "cms-test-55828"
+    "default": "cms-test-55828",
+    "default": "treefrog-cms-bm"
   }
 }
