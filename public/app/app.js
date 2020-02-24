@@ -8,6 +8,8 @@ function initButtons() {
     $('.text-wrapper').html(TREEFROG_SERVICE.getHomeContent());
     $('.btn-holder').html(TREEFROG_SERVICE.getHomeStartButton());
     addGetStartedListener();
+    $('.ql-toolbar').css('display', 'none');
+  $('#editor').css('display', 'none');
   });
 
   $('.closeModal').click(function() {
@@ -37,12 +39,13 @@ function getInput(){
       alert("the input is empty, try again");
     }else{
       console.log(res);
-      var array = ["testvar"];
+      var array = ["testvar", "example", "home"];
       
       for (let index = 0; index < array.length; index++) {
         console.log(array[index]);
         if(res === array[index]) {
           alert("this term already exists");
+          break;
         }else{
           console.log("it works");
 
@@ -58,12 +61,17 @@ function getInput(){
 
 function appendNav(res) {
   console.log(res);
+  alert("The Nav Name is" + res);
   $('.text-wrapper').html(TREEFROG_SERVICE.getAddContent());
   $('.btn-holder').html(TREEFROG_SERVICE.getAddContentButton());
   $('.itemAppend').html(res);
-  // $('#editor').html(quill);
+
+  $('.ql-toolbar').css('display', 'flex');
+  $('#editor').css('display', 'flex');
 
 }
+
+
 
 function addGetStartedListener() {
   $('.get-started').click(function(e) {

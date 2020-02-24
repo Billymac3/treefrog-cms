@@ -48,9 +48,6 @@ var TREEFROG_SERVICE = (function() {
 
     <h3>Nav > <span class="itemAppend"></span></h3>
 
-    <div id="editor">
-    </div>
-
 
     `;
     return addContent;
