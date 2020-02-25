@@ -61,7 +61,7 @@ function getInput(){
 
 function appendNav(res) {
   console.log(res);
-  alert("The Nav Name is" + res);
+  alert("The Nav Name is" + " " + res);
   $('.text-wrapper').html(TREEFROG_SERVICE.getAddContent());
   $('.btn-holder').html(TREEFROG_SERVICE.getAddContentButton());
   $('.itemAppend').html(res);
