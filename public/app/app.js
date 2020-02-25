@@ -31,6 +31,7 @@ function closeModal() {
   $('.modal').css('display', 'none');
 }
 
+// reading modal input for homework 4
 function getInput(){
   console.log("please work??");
     var str = $("#input").val();
@@ -70,7 +71,7 @@ function appendNav(res) {
   $('#editor').css('display', 'flex');
 
 }
-
+// editor page addition completed
 
 
 function addGetStartedListener() {
