@@ -32,11 +32,11 @@ function closeModal() {
 }
 
 function getInput(){
-  console.log("yeet");
+  console.log("please work??");
     var str = $("#input").val();
     var res = str.toLowerCase();
     if(res === ''){
-      alert("the input is empty, try again");
+      alert("really empty input");
     }else{
       console.log(res);
       var array = ["testvar", "example", "home"];
@@ -44,7 +44,7 @@ function getInput(){
       for (let index = 0; index < array.length; index++) {
         console.log(array[index]);
         if(res === array[index]) {
-          alert("this term already exists");
+          alert("this navigation already exists");
           break;
         }else{
           console.log("it works");
