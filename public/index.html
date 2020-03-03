@@ -59,7 +59,6 @@
 
         
       </div>
-      <div id="editor"></div>
       <div class="btn-holder">
         <span  class="btn btn-dark get-started">Get Started</span>
       </div>
@@ -79,9 +78,9 @@
         <p class="inputInstructions">
           Using the text box below enter the name of your main navigation.
         </p>
-        <input id="input" type="text" />
+        <input id="newNavInput" type="text" />
         <div class="buttonHolder">
-          <span class="btn btn-light getInput">Create Main Nav</span>
+          <span class="btn btn-light createMainNavBtn">Create Main Nav</span>
           <span class="btn btn-light closeModal">Cancel</span>
         </div>
       </div>
@@ -91,19 +90,6 @@
 <!-- <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script> -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-  var quill = new Quill('#editor', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline', 'strikethrough'],
-      [ 'blockquote', 'code-block', 'image', 'link']
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'  // or 'bubble'
-});
-</script>
 
 
     <script defer src="/__/firebase/7.8.1/firebase-app.js"></script>

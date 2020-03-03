@@ -20,10 +20,10 @@ p {
 #editor {
   height: 175px;
   margin-bottom: 40px;
-  display: none; }
+  width: 100%; }
 
 .ql-toolbar {
-  display: none; }
+  width: 100%; }
 
 .btn {
   border-radius: 10px;
@@ -127,7 +127,49 @@ p {
   color: #393c40;
   padding: 110px 30px 30px 30px; }
   .content-wrapper .text-wrapper {
-    width: 30%;
+    width: 85%;
     margin-bottom: 40px; }
     .content-wrapper .text-wrapper .pWidth {
-      width: 200%; }
+      width: 100%; }
+
+#ql-preview blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px; }
+
+#ql-preview pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible; }
+
+#ql-preview pre {
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px; }
+
+#ql-preview pre {
+  background-color: #f0f0f0;
+  border-radius: 3px; }
+
+#ql-preview .ql-size-huge {
+  font-size: 200%; }
+
+#ql-preview .ql-size-large {
+  font-size: 150%; }
+
+#ql-preview .ql-size-normal {
+  font-size: 100%; }
+
+#ql-preview .ql-size-small {
+  font-size: 75%; }
+
+#ql-preview .ql-align-center {
+  text-align: center; }
+
+#ql-preview .ql-align-right {
+  text-align: right; }
+
+#ql-preview .ql-font-monospace {
+  font-family: monospace; }

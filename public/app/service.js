@@ -40,31 +40,24 @@ var TREEFROG_SERVICE = (function() {
     return startBtn;
   };
 
-  var _getAddContent = function() {
-    let addContent = `<h1>Welcome to the Treefrog CMS</h1>
+  var _getAddMainNav = function(navName) {
+    let container = `<h1>Add Main Nav</h1>  
     <p class="pWidth">
     Now you have your navigation set now you can create your content. Below you will see your navigation name and a text editor. Create your content in the text editor and then click on “Save Page Info”. Once you have done that click on “PREVIEW SITE” to see what your web page looks like.
     </p>
+    <h4>nav > ${navName} </h4>
+    <div id="editor"></div>
+    <button id="savePage">Save Page</button>
+    <div id="ql-preview"></div>  `;
 
-    <h3>Nav > <span class="itemAppend"></span></h3>
-
-
-    `;
-    return addContent;
-  }
-
-  var _getAddContentButton = function() {
-    let addContentBtn =`<span class="btn btn-dark save-page-info">Save Page Info</span>`;
-
-    return addContentBtn;
-  }
+    return container;
+  };
 
   return {
     getGetStartedContent: _getGetStartedContent,
     getCreateNavButtons: _getCreateNavButtons,
     getHomeContent: _getHomeContent,
     getHomeStartButton: _getHomeStartButton,
-    getAddContent: _getAddContent,
-    getAddContentButton: _getAddContentButton
+    getAddMainNav: _getAddMainNav
   };
 })();
