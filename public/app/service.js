@@ -1,4 +1,72 @@
 var TREEFROG_SERVICE = (function() {
+
+  document.addEventListener("DOMContentLoaded", function() { // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 // // The Firebase SDK is initialized and available here! // // firebase.auth().onAuthStateChanged(user => {}); // firebase // .database() // .ref('/contacts') // .on('value', snapshot => {}); // firebase.firestore().collection('contacts'); // firebase.messaging().requestPermission().then(() => { }); // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { }); // // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 
+  try { let app = firebase.app(); 
+    let features = ["auth", "database", "messaging", "storage"].filter
+  (feature => typeof app[feature] === "function" ); 
+  document.getElementById('load'); } catch (e) { console.error(e); } 
+});
+
+var _db;
+
+var _initFirebase = function() {
+  firebase 
+  .auth() 
+  .signInAnonymously() 
+  .then(function(result) { 
+    console.log("connected");
+    _db = firebase.firestore(); 
+    _addContact();
+  });
+}
+
+var _addContact = function() {
+  let data = {fName: 'Sarah', lName: 'Jones'};
+  _db.collection('contacts') 
+  .add(data) 
+  .then(function(docRef) { 
+    console.log('Document written with ID: ', docRef.id); 
+    _saveData();
+  }) 
+  .catch(function(error) { 
+    console.error('Error adding document: ', error); 
+  });
+};
+
+var _saveData = function(editorContent) {
+  _db
+  .collection('Pages') 
+  .get() 
+  .then(function(querySnapshot) { 
+console.log('got something ', querySnapshot.empty);
+if (querySnapshot.empty){
+
+}else
+    querySnapshot.forEach(function(doc) { 
+      // clone template row and append to table body 
+      // var tr = tempTr.clone(); 
+      // tr.data('id', doc.id); 
+      console.log('id', doc.id); 
+      var id = doc.id; 
+      var data = doc.data(); 
+      // set cell values from Contact data 
+      console.log('data', data); 
+      }); 
+    });
+
+}
+
+ var _checkMainNavName = function(mainNavName, callback) {
+  _db.collection("Pages")
+  .where('navName', '==', mainNavName)
+  .get()
+  .then(function(querySnapshot){
+
+  })
+ };
+
+  
+
   var _getGetStartedContent = function() {
     let contentStr = `<h1>Treefrog CMS</h1><p>This is the screen where you will create your navigation and page content.</p><p>First, you will need to create a main navigation. Once you have created a main navigation you can create a sub-navigation if you would like to.</p><p>Once you create either a nav or sub-nav a text editor will pop up and you will be allowed to create your page content.</p>`;
 
@@ -58,6 +126,8 @@ var TREEFROG_SERVICE = (function() {
     getCreateNavButtons: _getCreateNavButtons,
     getHomeContent: _getHomeContent,
     getHomeStartButton: _getHomeStartButton,
-    getAddMainNav: _getAddMainNav
+    getAddMainNav: _getAddMainNav,
+    initFirebase: _initFirebase,
+    checkMainNavName: _checkMainNavName
   };
 })();

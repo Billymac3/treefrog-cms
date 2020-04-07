@@ -1,3 +1,17 @@
+function addMainNav(navName) {
+  console.log('add ', navName);
+
+  let pageFakeData = { 
+    "Pages":[
+        {
+            "navName": "home",
+            "content": "<h1>HELLO</h1>",
+            "subNavs": []
+        }
+    ]
+  }
+}
+
 function initButtons() {
   $('#home').click(function() {
     $('#addNav div').removeClass('active');
@@ -38,7 +52,8 @@ function getInput(){
       alert("really empty input");
     }else{
       console.log(res);
-      var array = ["testvar", "example", "home"];
+      // old fakelist to check with before firebase
+      // var array = ["testvar", "example", "home"];
       
       for (let index = 0; index < array.length; index++) {
         console.log(array[index]);
@@ -62,65 +77,72 @@ function getInput(){
 
 function createMainNav() {
   $(".createMainNavBtn").click(function() {
-    console.log("are you working???")
-    let usrInput = $("#newNavInput")
-      .val()
-      .toLowerCase()
-      .trim();
+    // 
+    let newNameName = $('#newMainNavName')
+    .val()
+    .toLowerCase()
+    .trim()
 
-    console.log(usrInput);
+    TREEFROG_SERVICE.checkMainNavName();
+  //   console.log("are you working???")
+  //   let usrInput = $("#newNavInput")
+  //     .val()
+  //     .toLowerCase()
+  //     .trim();
 
-    if (!usrInput) {
-      return;
-    }
+  //   console.log(usrInput);
 
-    let navs = [{ name: "home" }, { name: "about" }];
-    let isUnique = true;
+  //   if (!usrInput) {
+  //     return;
+  //   }
 
-    $.each(navs, function(idx, val) {
-      if (val.name == usrInput) {
-        console.log("repeat name");
-        isUnique = false;
-        return false;
-      }
-    });
+  //   let navs = [{ name: "home" }, { name: "about" }];
+  //   let isUnique = true;
 
-    if (isUnique) {
-      console.log("new name");
-      navs.push({ name: usrInput });
-      $("#newNavInput").val("");
-      closeModal();
+  //   $.each(navs, function(idx, val) {
+  //     if (val.name == usrInput) {
+  //       console.log("repeat name");
+  //       isUnique = false;
+  //       return false;
+  //     }
+  //   });
 
-      $(".text-wrapper").html(TREEFROG_SERVICE.getAddMainNav(usrInput));
-      $(".btn-holder").html("");
+  //   if (isUnique) {
+  //     console.log("new name");
+  //     navs.push({ name: usrInput });
+  //     $("#newNavInput").val("");
+  //     closeModal();
 
-      var toolbarOptions = [
-        ["bold", "italic", "underline", "strike"], // toggled buttons
-        ["blockquote", "code-block", "image", "link"],
-        [{ header: 1 }, { header: 2 }], // custom button values
-        [{ list: "ordered" }, { list: "bullet" }],
-        [{ script: "sub" }, { script: "super" }], // superscript/subscript
-        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-        [{ direction: "rtl" }], // text direction
-        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-        [{ font: [] }],
-        [{ align: [] }],
-        ["clean"] // remove formatting button
-      ];
-      var quill = new Quill("#editor", {
-        modules: { toolbar: toolbarOptions },
-        theme: "snow"
-      });
+  //     $(".text-wrapper").html(TREEFROG_SERVICE.getAddMainNav(usrInput));
+  //     $(".btn-holder").html("");
 
-      $("#savePage").click(function(e) {
-        e.preventDefault(); //
-        var pageNav = $("#pageTitle").val();
-        var justHtml = quill.root.innerHTML;
-        $("#ql-preview").html(justHtml);
-      });
-    }
+  //     var toolbarOptions = [
+  //       ["bold", "italic", "underline", "strike"], // toggled buttons
+  //       ["blockquote", "code-block", "image", "link"],
+  //       [{ header: 1 }, { header: 2 }], // custom button values
+  //       [{ list: "ordered" }, { list: "bullet" }],
+  //       [{ script: "sub" }, { script: "super" }], // superscript/subscript
+  //       [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+  //       [{ direction: "rtl" }], // text direction
+  //       [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+  //       [{ header: [1, 2, 3, 4, 5, 6, false] }],
+  //       [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  //       [{ font: [] }],
+  //       [{ align: [] }],
+  //       ["clean"] // remove formatting button
+  //     ];
+  //     var quill = new Quill("#editor", {
+  //       modules: { toolbar: toolbarOptions },
+  //       theme: "snow"
+  //     });
+
+  //     $("#savePage").click(function(e) {
+  //       e.preventDefault(); //
+  //       var pageNav = $("#pageTitle").val();
+  //       var justHtml = quill.root.innerHTML;
+  //       $("#ql-preview").html(justHtml);
+  //     });
+  //   }
   });
 }
 // editor page addition completed
@@ -142,6 +164,7 @@ function addGetStartedListener() {
 }
 
 $(document).ready(function() {
+  TREEFROG_SERVICE.initFirebase();
   initButtons();
   addGetStartedListener();
 });

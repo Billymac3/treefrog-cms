@@ -41,6 +41,16 @@ p {
   background-color: #f2dcc9;
   color: #393c40; }
 
+#savepage {
+  border-radius: 10px;
+  height: 50px;
+  padding: 20px 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: #393c40;
+  color: #f2f2f2; }
+
 .modal {
   position: fixed;
   top: 0;
